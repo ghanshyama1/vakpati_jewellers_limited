@@ -39,6 +39,8 @@ dependencies:
   flutter_image_slideshow: any
   flutter_rating_bar: ^4.0.1
   counter_button: ^1.0.1
+  order_tracker_zen:
+  wx_divider: ^1.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

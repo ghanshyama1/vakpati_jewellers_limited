@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:counter_button/counter_button.dart';
 
 import '../../bottom_bar_scrren/bottom_bar_screen.dart';
+import '../../bottom_bar_scrren/process_to_pay_screen.dart';
 
 class mycartscreen extends StatefulWidget {
   const mycartscreen({super.key});
@@ -13,7 +14,7 @@ class mycartscreen extends StatefulWidget {
 }
 
 class _mycartscreenState extends State<mycartscreen> {
-  int  _counterValue = 0;
+  int _counterValue = 0;
   final scaffoldkey = GlobalKey<ScaffoldState>();
   List<String> ringImages = [
     "assets/images/pro1.png",
@@ -166,37 +167,159 @@ class _mycartscreenState extends State<mycartscreen> {
                                         fontSize: 15,
                                         color: Color(customColor("b47d2a"))),
                                   ),
-
-
-                  CounterButton(
-                    addIcon: Icon(Icons.add_circle_outline_rounded),
-                  removeIcon: Icon(Icons.remove_circle_outline_rounded),
-                  loading: false,
-                  onChange: (int val) {
-                    setState(() {
-                      if (val >= 0) {
-                        _counterValue = val;
-                      }
-                    });
-                  },
-                  count: _counterValue,
-                  countColor: Colors.black,
-                  buttonColor: Colors.grey,
-                  progressColor: Colors.black,
-                )
-
-                ],
+                                  CounterButton(
+                                    addIcon:
+                                        Icon(Icons.add_circle_outline_rounded),
+                                    removeIcon: Icon(
+                                        Icons.remove_circle_outline_rounded),
+                                    loading: false,
+                                    onChange: (int val) {
+                                      setState(() {
+                                        if (val >= 0) {
+                                          _counterValue = val;
+                                        }
+                                      });
+                                    },
+                                    count: _counterValue,
+                                    countColor: Colors.black,
+                                    buttonColor: Colors.grey,
+                                    progressColor: Colors.black,
+                                  )
+                                ],
                               ),
                             ],
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
                 ),
               );
             },
-          ))
+          )),
+
+
+            Padding(
+              padding: const EdgeInsets.only(bottom: 120),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 150),
+                    child: RichText(
+                        text: TextSpan(text: "", children: [
+                          WidgetSpan(child: Text("item Total")), WidgetSpan(child: Padding(
+                            padding: const EdgeInsets.only(left: 60), child: Text("29000.00"),))])),
+                  ),
+                  SizedBox(height: 5,),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 130),
+                    child: RichText(
+                        text: TextSpan(text: "", children: [
+                          WidgetSpan(child: Text("CGST(1.5%)")), WidgetSpan(child: Padding(
+                            padding: const EdgeInsets.only(left: 80,), child: Text("435.00"),))])),
+                  ),
+                  SizedBox(height: 5,),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 130),
+                    child: RichText(
+                        text: TextSpan(text: "", children: [
+                          WidgetSpan(child: Text("SGST(1.5%)")), WidgetSpan(child: Padding(
+                            padding: const EdgeInsets.only(left: 80), child: Text("435.00"),))])),
+                  ),
+                  SizedBox(height: 5,),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 140),
+                    child: RichText(
+                        text: TextSpan(text: "", children: [
+                          WidgetSpan(child: Text("Discount")), WidgetSpan(child: Padding(
+                            padding: const EdgeInsets.only(left: 80), child: Text("1000.00"),))])),
+                  ),
+                  SizedBox(height: 5,),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 140),
+                    child: RichText(
+                        text: TextSpan(text: "", children: [
+                          WidgetSpan(child: Text("Grand Total",style: TextStyle(fontSize: 17,fontWeight: FontWeight.w600),)), WidgetSpan(child: Padding(
+                            padding: const EdgeInsets.only(left: 30), child: Text("28870.00",style: TextStyle(fontWeight: FontWeight.w600,fontSize: 17),),))])),
+                  ),
+                  SizedBox(height: 10,),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20,right: 20),
+                    child: Divider(thickness: 0.5,color: Colors.grey,height: 25,),
+                  ),
+                  SizedBox(height: 10,),
+
+                  Container(height: 50,width: 350,
+                    decoration: BoxDecoration
+                      (borderRadius: BorderRadius.all(Radius.circular(30)),
+                        color: Colors.white,border: Border.all(color: Colors.grey.shade300)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                      Text("Apply discount coupon" , style: TextStyle(fontSize: 18,fontWeight: FontWeight.w400),),
+                      SizedBox(height: 40,width: 140,
+                        child: ElevatedButton(
+                            onPressed: () {
+
+                            },
+                            style: ElevatedButton.styleFrom(
+                                textStyle: TextStyle(),
+                                backgroundColor: Color(customColor("b47d2a"))),
+                            child: Text(
+                              'APPLY',
+                              style: TextStyle(fontSize: 18, color: Colors.white),
+                            )),
+                      ),
+                    ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20,right: 20),
+                    child: Divider(thickness: 0.5,color: Colors.grey,height: 25,),
+                  ),
+
+
+                  Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                    ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => processpay(),
+                              ));
+
+                        },
+                        style: ElevatedButton.styleFrom(
+                            textStyle: TextStyle(),
+                            backgroundColor: Color(customColor("b47d2a"))),
+                        child: Text(
+                          'CONTINUE SHOPPING',
+                          style: TextStyle(fontSize: 15, color: Colors.white),
+                        )),
+
+                    SizedBox(
+                      child: ElevatedButton(
+                          onPressed: () {
+
+                          },
+                          style: ElevatedButton.styleFrom(
+                              textStyle: TextStyle(),
+                              backgroundColor: Color(customColor("b47d2a"))),
+                          child: Text(
+                            'PROCEED TO PAY',
+                            style: TextStyle(fontSize: 15, color: Colors.white),
+                          )),
+                    ),
+
+                  ],)
+
+
+
+                ],
+              ),
+            )
+
         ],
       ),
     );
