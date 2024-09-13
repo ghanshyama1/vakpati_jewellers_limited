@@ -15,7 +15,7 @@ class splashscreen extends StatefulWidget {
 class _splashscreenState extends State<splashscreen> {
   void initState(){
     super.initState();
-    Timer(Duration(seconds: 5) ,() =>
+    Timer(Duration(seconds: 15) ,() =>
        Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => buyer_custmer() ,)));
   }
   @override

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wx_divider/wx_divider.dart';
 import '../all_screen/admin_awaited_page.dart';
+import 'my_profile_screen.dart';
 
 class my_invoice extends StatefulWidget {
   const my_invoice({super.key});
@@ -285,7 +286,7 @@ class _my_invoiceState extends State<my_invoice> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => my_invoice(),
+                    builder: (context) =>  myprofile(),
                   ));
 
 
